@@ -1,0 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700%7COpen+Sans:400,300,600);
+#center {
+  display: block;
+  margin-top: 0.6em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form1 {
+  display: block;
+  width: 100%;
+  padding: 2em;
+}
+.t_add {
+  margin-top: 0;
+  color: white;
+  background-color: #3a3a80;
+  padding: 14px 20px;
+  border: none;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-family: "open sans condensed";
+}
+
+.log-form {
+  width: 40%;
+  margin-top: 20px;
+  min-width: 320px;
+  max-width: 475px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+.container-quest {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.5fr 0.9fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "a1 a1 a1"
+    "b1 b1 b1"
+    "c1 c1 c1"
+    "d1 d1 d1";
+}
+
+.alert_p {
+  color: crimson;
+}
+
+label {
+  display: block;
+}
+.logo_front {
+  height: 50px;
+  width: 90px;
+}
+
+.button {
+  color: white;
+  background-color: #34c6fb;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  margin-top: 0.6em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button_add {
+  color: white;
+  background-color: #3b1571;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  margin-top: 0.6em;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: a1;
+  font-family: "open sans condensed";
+  font-size: large;
+}
+
+.button_all {
+  color: white;
+  background-color: #080c17;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  margin-top: 0.6em;
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: a1;
+  font-family: "open sans condensed";
+  font-size: large;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+.a {
+  font-family: "open sans";
+  font-size: 0.75em;
+  margin-left: 1em;
+  margin-top: 0.5em;
+}

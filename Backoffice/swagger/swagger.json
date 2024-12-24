@@ -1,0 +1,109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Swagger demo for user registration and login",
+    "version": "1.0.0",
+    "title": "User Registration and Login API",
+    "contact": {
+      "email": "seu-email@example.com"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "User",
+      "description": "Operations related to user"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/userS/registerCliente": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Create user",
+        "description": "Registers a new user",
+        "operationId": "createUser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object that needs to be registered",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Successful operation"
+          }
+        }
+      }
+    },
+    "/index/login": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Log in user",
+        "description": "Logs in a user",
+        "operationId": "loginUser",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User object for login",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "required": [
+        "email",
+        "password"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["CLIENTE", "ADMIN"]
+        }
+      }
+    }
+  }
+}

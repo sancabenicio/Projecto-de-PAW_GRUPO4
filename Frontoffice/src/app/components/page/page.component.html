@@ -1,0 +1,90 @@
+<!-- ======= Header/Navbar ======= -->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-justify-content: start;" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/properties">Property</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Events</a>
+        </li>
+      </ul>
+    </div>
+
+    <a class="navbar-brand text-brand text-center" style="color: black;" href="/page">
+      Património<span class="color-b">PT</span>
+    </a>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="btn-primary btn-sm btn btn-success" onclick="location.href='/login'">Login</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary btn-sm btn btn-light" onclick="location.href='/register'">Register</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary btn-sm btn btn-light" onclick="location.href='/profile'">My Account</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- depois tem que ser adaptada para quando o cliente fizer o login, mudar para "My Account" e caso contrário, manter "Login" -->
+
+<div class="intro intro-carousel swiper position-relative">
+  <div class="swiper-wrapper">
+    <div *ngFor="let property of properties" class="swiper-slide carousel-item-a intro-item bg-image" [ngStyle]="{'background-image': 'url(' + property?.imageSrc + ')'}">
+      <div class="overlay overlay-a"></div>
+      <div class="intro-content display-table">
+        <div class="table-cell">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="intro-body">
+                  <p class="intro-title-top">{{ property?.city }}</p>
+                  <h1 class="intro-title mb-4">
+                    <span class="color-b">{{ property?.name }} </span> 
+                  </h1>
+                  <a [routerLink]="['/properties', property._id]" class="custom-link" style="color: white;">
+                    Click here to view
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+
+<!-- ======= Footer ======= -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        
+        <div class="copyright-footer">
+          <p class="copyright color-text-a">
+            &copy; Copyright
+            <span class="color-a">PatrimónioPT</span> All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer><!-- End  Footer -->

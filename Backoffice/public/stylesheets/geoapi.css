@@ -1,0 +1,28 @@
+.autocomplete-container {
+    position: relative;
+  }
+  
+  .autocomplete-container {
+    position: relative;
+  }
+  
+  .autocomplete-container input {
+    display: block;
+    width: 100%;
+    height: 38px;
+  }
+  
+  .autocomplete-container input[type=text] {
+    background-color: #fff;
+    width: 100%;
+  }
+
+  #photoModel{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 180px;
+    height: 180px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }

@@ -1,0 +1,179 @@
+<!-- ======= Header/Navbar ======= -->
+<nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-justify-content: start;" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="/page">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/properties">Property</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/events">Events</a>
+        </li>
+      </ul>
+    </div>
+
+    <a class="navbar-brand text-brand text-center" href="/page">
+      Património<span class="color-b">PT</span>
+    </a>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarDefault">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="btn-primary btn-sm btn btn-success" onclick="location.href='/profile'">My Account</button>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-primary btn-sm btn btn-danger" (click)="logout()">Logout</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+  
+  <main id="main">
+    <!-- ======= Intro Single ======= -->
+    <section class="intro-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 col-lg-8">
+            <div class="title-single-box">
+              <h1 class="title-single"> <span class="color-text-a" style="font-size: 50px; color: black;">{{ event?.name }}</span></h1>
+              <span class="color-text-a" style="font-size: 20; color: green;">{{ event?.location?.formatted }}</span>
+              <span>
+                <ng-container *ngIf="event?.ticketsSold === event?.capacity">
+                  <div class="alert alert-danger" role="alert" style="display: flex; align-items: center; justify-content: center; height: 5vh;">
+                    <strong>Sorry, this event is sold out!</strong>
+                  </div>
+                </ng-container>
+              
+                <ng-container *ngIf="event?.ticketsSold !== event?.capacity">
+                  <ng-container *ngIf="event?.isFree; else paidEventTemplate">
+                    <form (ngSubmit)="buyTickets()">
+                      <button type="submit" class="btn btn-primary btn-sm" style="background-color: green; border-color: green;">Participar</button>
+                    </form>
+                  </ng-container>
+                
+                  <ng-template #paidEventTemplate>
+                    <form (ngSubmit)="buyTickets()">
+                      <strong>Preço: {{ event?.ticketPrice }}€</strong>
+                      <button type="submit" class="btn btn-primary btn-sm" style="background-color: green; border-color: green;">Comprar</button>
+                    </form>
+                  </ng-template>
+                </ng-container>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-4">
+            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="/page" class="color">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  <a href="/events" class="color">Events</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  {{ event?.name }}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Intro Single-->
+  
+    <!-- ======= Property Single ======= -->
+    <section class="property-single nav-arrow-b">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="img-box-a">
+              <img [src]="event?.imageSrc" alt="" class="img-a img-fluid property-image">
+            </div>
+          </div>
+        </div>
+  
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
+  
+            <div class="row justify-content-between">
+              <div class="col-md-10 col-lg-4 ">
+                <div class="property-summary">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="title-box-d">
+                        <h3 class="title-d">Quick Summary</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary-list">
+                    <ul class="list">
+                      <li class="d-flex justify-content-between">
+                        <strong>Name:</strong>
+                        <div>{{ event?.name }}</div>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Date:</strong>
+                        <div>{{ event?.date | date: 'dd/MM/yyyy' }}</div>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Local:</strong>
+                        <div><a [routerLink]="['/properties', event?.location?._id]">{{ event?.location?.name }}</a></div>
+                      </li>
+                      <li class="d-flex justify-content-between">
+                        <strong>Tickets Available:</strong>
+                        <div>{{ event?.ticketsSold }}/{{event?.capacity}}</div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-7 col-lg-7 section-md-t3 ">
+                <div class="row">
+                  <div class="col-sm-12 offset-md-4">
+                    <div class="title-box-d">
+                      <h3 class="title-d">Property Description</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="property-description offset-md-4">
+                  <p class="description color-text-a">
+                    {{ event?.description }}
+                  </p>
+                </div>            
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Property Single -->
+  
+    </main><!-- End #main -->
+  
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          
+          <div class="copyright-footer">
+            <p class="copyright color-text-a">
+              &copy; Copyright
+              <span class="color-a">PatrimónioPT</span> All Rights Reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->

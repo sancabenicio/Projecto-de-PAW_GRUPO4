@@ -1,0 +1,7 @@
+GET http://localhost:3000/dashboard
+Content-Type: application/json
+x-access-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NDcwMjAzNGQyMmNlNzVkODQ1Zjk2YiIsImlhdCI6MTY4MjM3NjQyNiwiZXhwIjoxNjgyNDYyODI2fQ.zNUr2TN-bNR8CB9Ie-C3VZMw6D-4Gw0ReYrvSfewbHY
+
+
+
+
